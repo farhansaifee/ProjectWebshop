@@ -1,0 +1,13 @@
+Requirements:
+
+User:
+- kann Produkt sehen, im Warenkorb hinzufügen, Menge auswählen
+- Profil erstellen, bearbeiten
+- Admin kontakieren
+- Social Media Plattformen anklicken
+
+Admin:
+- kann User erstellen, bearbeiten, löschen (zb. Pwd)
+- kann Produkte erstellen, bearbeiten, löschen
+- ggf. auch dasselbe mit Kategorie
+- kann Sales ansehen
