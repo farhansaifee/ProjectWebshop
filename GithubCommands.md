@@ -24,3 +24,9 @@ Push the changes in your local repository to GitHub.
 ```
 git push origin <branch-name> // pushes those changes to Github to the branch you want 
 ```
+
+## 2. How to pull repository from CMD (terminal) to Github
+
+```
+git pull // pulls repository after changes from others have been made 
+```
