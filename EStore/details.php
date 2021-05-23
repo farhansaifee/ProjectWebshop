@@ -1,157 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Technikum Store</title>
-    <link rel="stylesheet" href="styles/bootstrap-337.min.css">
-    <link rel="stylesheet" href="font-awsome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="styles/style.css">
-</head>
-<body>
-   
-   <div id="top"><!-- Top Begin -->
-       
-       <div class="container"><!-- container Begin -->
-           
-           <div class="col-md-6 offer"><!-- col-md-6 offer Begin -->
-               
-               <a href="#" class="btn btn-success btn-sm">Welcome</a>
-               <a href="checkout.php">4 Items In Your Cart | Total Price: $300 </a>
-               
-           </div><!-- col-md-6 offer Finish -->
-           
-           <div class="col-md-6"><!-- col-md-6 Begin -->
-               
-               <ul class="menu"><!-- cmenu Begin -->
-                   
-                   <li>
-                       <a href="customer_register.php">Register</a>
-                   </li>
-                   <li>
-                       <a href="customer/my_account.php">My Account</a>
-                   </li>
-                   <li>
-                       <a href="cart.php">Go To Cart</a>
-                   </li>
-                   <li>
-                       <a href="checkout.php">Login</a>
-                   </li>
-                   
-               </ul><!-- menu Finish -->
-               
-           </div><!-- col-md-6 Finish -->
-           
-       </div><!-- container Finish -->
-       
-   </div><!-- Top Finish -->
-   
-   <div id="navbar" class="navbar navbar-default"><!-- navbar navbar-default Begin -->
-       
-       <div class="container"><!-- container Begin -->
-           
-           <div class="navbar-header"><!-- navbar-header Begin -->
-               
-               <a href="index.php" class="navbar-brand home"><!-- navbar-brand home Begin -->
-                   
-                   <img src="images/ecom-store-logo.png" alt="Technikum-Store Logo" class="hidden-xs">
-                   <img src="images/ecom-store-logo-mobile.png" alt="Technikum-Store Logo Mobile" class="visible-xs">
-                   
-               </a><!-- navbar-brand home Finish -->
-               
-               <button class="navbar-toggle" data-toggle="collapse" data-target="#navigation">
-                   
-                   <span class="sr-only">Toggle Navigation</span>
-                   
-                   <i class="fa fa-align-justify"></i>
-                   
-               </button>
-               
-               <button class="navbar-toggle" data-toggle="collapse" data-target="#search">
-                   
-                   <span class="sr-only">Toggle Search</span>
-                   
-                   <i class="fa fa-search"></i>
-                   
-               </button>
-               
-           </div><!-- navbar-header Finish -->
-           
-           <div class="navbar-collapse collapse" id="navigation"><!-- navbar-collapse collapse Begin -->
-               
-               <div class="padding-nav"><!-- padding-nav Begin -->
-                   
-                   <ul class="nav navbar-nav left"><!-- nav navbar-nav left Begin -->
-                       
-                       <li>
-                           <a href="index.php">Home</a>
-                       </li>
-                       <li class="active">
-                           <a href="shop.php">Shop</a>
-                       </li>
-                       <li>
-                           <a href="customer/my_account.php">My Account</a>
-                       </li>
-                       <li>
-                           <a href="cart.php">Shopping Cart</a>
-                       </li>
-                       <li>
-                           <a href="contact.php">Contact Us</a>
-                       </li>
-                       
-                   </ul><!-- nav navbar-nav left Finish -->
-                   
-               </div><!-- padding-nav Finish -->
-               
-               <a href="cart.php" class="btn navbar-btn btn-primary right"><!-- btn navbar-btn btn-primary Begin -->
-                   
-                   <i class="fa fa-shopping-cart"></i>
-                   
-                   <span>4 Items In Your Cart</span>
-                   
-               </a><!-- btn navbar-btn btn-primary Finish -->
-               
-               <div class="navbar-collapse collapse right"><!-- navbar-collapse collapse right Begin -->
-                   
-                   <button class="btn btn-primary navbar-btn" type="button" data-toggle="collapse" data-target="#search"><!-- btn btn-primary navbar-btn Begin -->
-                       
-                       <span class="sr-only">Toggle Search</span>
-                       
-                       <i class="fa fa-search"></i>
-                       
-                   </button><!-- btn btn-primary navbar-btn Finish -->
-                   
-               </div><!-- navbar-collapse collapse right Finish -->
-               
-               <div class="collapse clearfix" id="search"><!-- collapse clearfix Begin -->
-                   
-                   <form method="get" action="results.php" class="navbar-form"><!-- navbar-form Begin -->
-                       
-                       <div class="input-group"><!-- input-group Begin -->
-                           
-                           <input type="text" class="form-control" placeholder="Search" name="user_query" required>
-                           
-                           <span class="input-group-btn"><!-- input-group-btn Begin -->
-                           
-                           <button type="submit" name="search" value="Search" class="btn btn-primary"><!-- btn btn-primary Begin -->
-                               
-                               <i class="fa fa-search"></i>
-                               
-                           </button><!-- btn btn-primary Finish -->
-                           
-                           </span><!-- input-group-btn Finish -->
-                           
-                       </div><!-- input-group Finish -->
-                       
-                   </form><!-- navbar-form Finish -->
-                   
-               </div><!-- collapse clearfix Finish -->
-               
-           </div><!-- navbar-collapse collapse Finish -->
-           
-       </div><!-- container Finish -->
-       
-   </div><!-- navbar navbar-default Finish -->
+<?php 
+
+    $active='Cart';
+    include("includes/header.php");
+
+?>
    
    <div id="content"><!-- #content Begin -->
        <div class="container"><!-- container Begin -->
@@ -164,6 +16,22 @@
                    <li>
                        Shop
                    </li>
+
+                   <li>
+
+                   <a href="shop.php?p_cat= <?php  $p_cat_id;   ?>"><?php  $p_cat_title;   ?></a>
+
+                   </li>
+
+                   <li>
+
+                   <?php echo   $pro_title;  ?>
+
+
+                   </li>
+
+
+
                </ul><!-- breadcrumb Finish -->
                
            </div><!-- col-md-12 Finish -->
@@ -191,13 +59,17 @@
                                
                                <div class="carousel-inner">
                                    <div class="item active">
-                                       <center><img class="img-responsive" src="admin_area/product_images/Product-3a.jpg" alt="Product 3-a"></center>
+                                       <center>
+                                       <img class="img-responsive" src="admin_area/product_images/<?php echo $pro_img1 ?>" alt="Product 3-a">
+                                       </center>
                                    </div>
                                    <div class="item">
-                                       <center><img class="img-responsive" src="admin_area/product_images/Product-3b.jpg" alt="Product 3-b"></center>
+                                       <center>
+                                       <img class="img-responsive" src="admin_area/product_images/<?php echo $pro_img2 ?>" alt="Product 3-b"></center>
                                    </div>
                                    <div class="item">
-                                       <center><img class="img-responsive" src="admin_area/product_images/Product-3c.jpg" alt="Product 3-c"></center>
+                                       <center>
+                                       <img class="img-responsive" src="admin_area/product_images/<?php echo $pro_img3 ?>" alt="Product 3-c"></center>
                                    </div>
                                </div>
                                
@@ -217,9 +89,11 @@
                    
                    <div class="col-sm-6"><!-- col-sm-6 Begin -->
                        <div class="box"><!-- box Begin -->
-                           <h1 class="text-center">Technikum Polo Shirt Men</h1>
+                           <h1 class="text-center"><?php  echo $pro_title; ?></h1>
+
+                           <?php add_cart() ; ?>
                            
-                           <form action="details.php" class="form-horizontal" method="post"><!-- form-horizontal Begin -->
+                           <form action="details.php?add_cart=<?php  echo $product_id; ?>" class="form-horizontal" method="post"><!-- form-horizontal Begin -->
                                <div class="form-group"><!-- form-group Begin -->
                                    <label for="" class="col-md-5 control-label">Products Quantity</label>
                                    
@@ -241,7 +115,8 @@
                                    
                                    <div class="col-md-7"><!-- col-md-7 Begin -->
                                        
-                                       <select name="product_size" class="form-control"><!-- form-control Begin -->
+                                       <select name="product_size" class="form-control" required oninput = "setCustimValidity('')"
+                                       oninvalid = "setCustimValidity('Must pick 1 size for the product')"><!-- form-control Begin -->
                                           
                                            <option>Select a Size</option>
                                            <option>Small</option>
@@ -253,7 +128,7 @@
                                    </div><!-- col-md-7 Finish -->
                                </div><!-- form-group Finish -->
                                
-                               <p class="price">$50</p>
+                               <p class="price"><?php  echo $pro_price; ?></p>
                                
                                <p class="text-center buttons"><button class="btn btn-primary i fa fa-shopping-cart"> Add to cart</button></p>
                                
@@ -265,19 +140,19 @@
                            
                            <div class="col-xs-4"><!-- col-xs-4 Begin -->
                                <a data-target="#myCarousel" data-slide-to="0"  href="#" class="thumb"><!-- thumb Begin -->
-                                   <img src="admin_area/product_images/Product-3a.jpg" alt="product 1" class="img-responsive">
+                                   <img src="admin_area/product_images/<?php echo $pro_img1 ?>" alt="product 1" class="img-responsive">
                                </a><!-- thumb Finish -->
                            </div><!-- col-xs-4 Finish -->
                            
                            <div class="col-xs-4"><!-- col-xs-4 Begin -->
                                <a data-target="#myCarousel" data-slide-to="1"  href="#" class="thumb"><!-- thumb Begin -->
-                                   <img src="admin_area/product_images/Product-3b.jpg" alt="product 2" class="img-responsive">
+                                   <img src="admin_area/product_images/<?php echo $pro_img2 ?>" alt="product 2" class="img-responsive">
                                </a><!-- thumb Finish -->
                            </div><!-- col-xs-4 Finish -->
                            
                            <div class="col-xs-4"><!-- col-xs-4 Begin -->
                                <a data-target="#myCarousel" data-slide-to="2"  href="#" class="thumb"><!-- thumb Begin -->
-                                   <img src="admin_area/product_images/Product-3c.jpg" alt="product 4" class="img-responsive">
+                                   <img src="admin_area/product_images/<?php echo $pro_img3 ?>" alt="product 4" class="img-responsive">
                                </a><!-- thumb Finish -->
                            </div><!-- col-xs-4 Finish -->
                            
@@ -294,7 +169,7 @@
                    
                    <p>
                        
-                       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione praesentium ipsum accusantium facere nulla, beatae vitae consequatur enim et nesciunt possimus doloribus omnis dolorum, ea quibusdam excepturi asperiores, temporibus! Consequatur?
+                         <?php  echo $pro_desc; ?>
                        
                    </p>
                    
@@ -317,53 +192,59 @@
                        </div><!-- box same-height headline Finish -->
                    </div><!-- col-md-3 col-sm-6 Finish -->
                    
-                   <div class="col-md-3 col-sm-6 center-responsive"><!-- col-md-3 col-sm-6 center-responsive Begin -->
-                       <div class="product same-height"><!-- product same-height Begin -->
-                           <a href="details.php">
-                               <img class="img-responsive" src="admin_area/product_images/Product-6a.jpg" alt="Product 6">
-                            </a>
-                            
-                            <div class="text"><!-- text Begin -->
-                                <h3><a href="details.php">Technikum Tank Top Women</a></h3>
-                                
-                                <p class="price">$40</p>
-                                
-                            </div><!-- text Finish -->
-                            
-                        </div><!-- product same-height Finish -->
-                   </div><!-- col-md-3 col-sm-6 center-responsive Finish -->
-                   
-                   <div class="col-md-3 col-sm-6 center-responsive"><!-- col-md-3 col-sm-6 center-responsive Begin -->
-                       <div class="product same-height"><!-- product same-height Begin -->
-                           <a href="details.php">
-                               <img class="img-responsive" src="admin_area/product_images/Product-5a.jpg" alt="Product 6">
-                            </a>
-                            
-                            <div class="text"><!-- text Begin -->
-                                <h3><a href="details.php">Technikum Street Shirt Women</a></h3>
-                                
-                                <p class="price">$45</p>
-                                
-                            </div><!-- text Finish -->
-                            
-                        </div><!-- product same-height Finish -->
-                   </div><!-- col-md-3 col-sm-6 center-responsive Finish -->
-                   
-                   <div class="col-md-3 col-sm-6 center-responsive"><!-- col-md-3 col-sm-6 center-responsive Begin -->
-                       <div class="product same-height"><!-- product same-height Begin -->
-                           <a href="details.php">
-                               <img class="img-responsive" src="admin_area/product_images/Product-4a.jpg" alt="Product 6">
-                            </a>
-                            
-                            <div class="text"><!-- text Begin -->
-                                <h3><a href="details.php">Technikum Polo T-Shirt Women</a></h3>
-                                
-                                <p class="price">$50</p>
-                                
-                            </div><!-- text Finish -->
-                            
-                        </div><!-- product same-height Finish -->
-                   </div><!-- col-md-3 col-sm-6 center-responsive Finish -->
+                  <?php
+
+                  $get_products = "select * from products order by rand() LIMIT 0,3";
+
+                  $run_products = mysqli_query($con , $get_products);
+
+                  while($row_products = mysqli_fetch_array($run_products))
+                  {
+                      $pro_id = $row_products['product_id'];
+
+                      $pro_title = $row_products['product_title'];
+
+                      $pro_img1 = $row_products['product_img1'];
+
+                      $pro_price = $row_products['product_price'];
+
+                      echo "
+
+                      <div class='col-md-3 col-sm-6 center-responsive'>
+
+                      <div class = 'product same-height'>
+
+                      <a href='details.php?pro_id=$pro_id'>
+
+                      <img class = 'img-responsive' src='admin_area/product_images/$pro_img1'>
+
+                      </a>
+
+                      <div class = ' text'>
+
+                      <h3> <a href = 'details.php?pro_id=$pro_id'> $pro_title  </a> </h3>
+
+                      <p class='price'> $pro_price </p>
+
+
+
+                      </div>
+
+
+                      </div>
+
+                      </div>
+                      
+                      
+                      ";
+
+                  }
+
+?>
+
+
+
+
                    
                </div><!-- #row same-heigh-row Finish -->
                
@@ -374,7 +255,7 @@
    
    <?php 
     
-    //include("includes/footer.php");
+    include("includes/footer.php");
     
     ?>
     

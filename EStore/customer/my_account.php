@@ -1,9 +1,29 @@
+<?php 
+
+session_start();
+
+if(!isset($_SESSION['customer_email']))
+{
+
+    echo "<script>window.open('../checkout.php ' , '_self')</script>";
+}
+else
+{
+
+
+
+
+include("includes/db.php");
+include("functions/functions.php");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Technikums Store</title>
+    <title>M-Dev Store</title>
     <link rel="stylesheet" href="styles/bootstrap-337.min.css">
     <link rel="stylesheet" href="font-awsome/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles/style.css">
@@ -16,8 +36,23 @@
            
            <div class="col-md-6 offer"><!-- col-md-6 offer Begin -->
                
-               <a href="#" class="btn btn-success btn-sm">Welcome</a>
-               <a href="checkout.php">4 Items In Your Cart | Total Price: $300 </a>
+               <a href="#" class="btn btn-success btn-sm">
+               
+               <?php 
+
+if(!isset($_SESSION['customer_email']))
+{
+    echo " Welcome : Guest";
+}else{
+
+ echo "Welcome: ". $_SESSION['customer_email'] . "";
+}
+
+
+?>
+               
+               </a>
+               <a href="checkout.php"><?php items() ; ?> Items In Your Cart | Total Price: <?php total_price(); ?> </a>
                
            </div><!-- col-md-6 offer Finish -->
            
@@ -35,7 +70,24 @@
                        <a href="../cart.php">Go To Cart</a>
                    </li>
                    <li>
-                       <a href="../checkout.php">Login</a>
+                       <a href="../checkout.php">
+                       
+                       <?php 
+                       
+                     
+
+               if(!isset($_SESSION['customer_email']))
+               {
+                   echo " <a href='checkout.php'> login </a>";
+               }else{
+
+                echo " <a href='logout.php'> Log Out </a>";
+               }
+
+                       
+                       ?>
+                       
+                       </a>
                    </li>
                    
                </ul><!-- menu Finish -->
@@ -52,10 +104,10 @@
            
            <div class="navbar-header"><!-- navbar-header Begin -->
                
-               <a href="index.php" class="navbar-brand home"><!-- navbar-brand home Begin -->
+               <a href="../index.php" class="navbar-brand home"><!-- navbar-brand home Begin -->
                    
-                   <img src="images/ecom-store-logo.png" alt="Technikums-Store Logo" class="hidden-xs">
-                   <img src="images/ecom-store-logo-mobile.png" alt="Technikums-Store Logo Mobile" class="visible-xs">
+                   <img src="images/ecom-store-logo.png" alt="M-dev-Store Logo" class="hidden-xs">
+                   <img src="images/ecom-store-logo-mobile.png" alt="M-dev-Store Logo Mobile" class="visible-xs">
                    
                </a><!-- navbar-brand home Finish -->
                
@@ -103,11 +155,11 @@
                    
                </div><!-- padding-nav Finish -->
                
-               <a href="cart.php" class="btn navbar-btn btn-primary right"><!-- btn navbar-btn btn-primary Begin -->
+               <a href="../cart.php" class="btn navbar-btn btn-primary right"><!-- btn navbar-btn btn-primary Begin -->
                    
                    <i class="fa fa-shopping-cart"></i>
                    
-                   <span>4 Items In Your Cart</span>
+                   <span><?php items() ; ?> Items In Your Cart</span>
                    
                </a><!-- btn navbar-btn btn-primary Finish -->
                
@@ -190,6 +242,38 @@
                    
                    ?>
                    
+                   <?php
+                   
+                   if (isset($_GET['pay_offline'])){
+                       include("pay_offline.php");
+                   }
+                   
+                   ?>
+                   
+                   <?php
+                   
+                   if (isset($_GET['edit_account'])){
+                       include("edit_account.php");
+                   }
+                   
+                   ?>
+                   
+                   <?php
+                   
+                   if (isset($_GET['change_pass'])){
+                       include("change_pass.php");
+                   }
+                   
+                   ?>
+                   
+                   <?php
+                   
+                   if (isset($_GET['delete_account'])){
+                       include("delete_account.php");
+                   }
+                   
+                   ?>
+                   
                </div><!-- box Finish -->
                
            </div><!-- col-md-9 Finish -->
@@ -199,7 +283,7 @@
    
    <?php 
     
-    //include("includes/footer.php");
+    include("includes/footer.php");
     
     ?>
     
@@ -209,3 +293,9 @@
     
 </body>
 </html>
+
+<?php
+
+}
+
+?>

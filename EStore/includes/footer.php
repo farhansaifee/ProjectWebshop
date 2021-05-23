@@ -17,7 +17,23 @@
                 <h4>User Section</h4>
                 
                 <ul><!-- ul Begin -->
-                    <li><a href="checkout.php">Login</a></li>
+
+                <?php
+
+if(!isset($_SESSION['customer_email']))
+{
+    echo "<a href='checkout.php'>Login</a>";
+
+
+}else
+{
+  echo "<a href='customer/my_account.php?my_orders'>My Account</a>";
+
+
+}
+
+?>
+
                     <li><a href="customer_register.php">Register</a></li>
                 </ul><!-- ul Finish -->
                 
@@ -30,11 +46,37 @@
                 <h4>Top Products Categories</h4>
                 
                 <ul><!-- ul Begin -->
-                    <li><a href="#">Jackets</a></li>
-                    <li><a href="#">Accessories</a></li>
-                    <li><a href="#">Coats</a></li>
-                    <li><a href="#">Shoes</a></li>
-                    <li><a href="#">T-Shirts</a></li>
+                
+                    <?php 
+                    
+                        $get_p_cats = "select * from product_categories";
+                    
+                        $run_p_cats = mysqli_query($con,$get_p_cats);
+                    
+                        while($row_p_cats=mysqli_fetch_array($run_p_cats)){
+                            
+                            $p_cat_id = $row_p_cats['p_cat_id'];
+                            
+                            $p_cat_title = $row_p_cats['p_cat_title'];
+                            
+                            echo "
+                            
+                                <li>
+                                
+                                    <a href='shop.php?p_cat=$p_cat_id'>
+                                    
+                                        $p_cat_title
+                                    
+                                    </a>
+                                
+                                </li>
+                            
+                            ";
+                            
+                        }
+                    
+                    ?>
+                
                 </ul><!-- ul Finish -->
                 
                 <hr class="hidden-md hidden-lg">
@@ -47,12 +89,12 @@
                 
                 <p><!-- p Start -->
                     
-                    <strong>Technikum Projekt Team</strong>
-                    <br/>Burhan, Malik, Farhan
-                    <br/>Wien
+                    <strong>M-Dev Media inc.</strong>
+                    <br/>Cibubur
+                    <br/>Ciracas
                     <br/>0818-0683-3157
-                    <br/>projektteam@gmail.com
-                    <br/><strong>Thank you</strong>
+                    <br/>mugianto4th@gmail.com
+                    <br/><strong>MrGhie</strong>
                     
                 </p><!-- p Finish -->
                 
@@ -70,10 +112,12 @@
                     Dont miss our latest update products.
                 </p>
                 
-                <form action="" method="post"><!-- form begin -->
+                <form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open('https://feedburner.google.com/fb/a/mailverify?uri=M-devMedia', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true" method="post"><!-- form begin -->
                     <div class="input-group"><!-- input-group begin -->
                         
                         <input type="text" class="form-control" name="email">
+                        
+                        <input type="hidden" value="M-devMedia" name="uri"/><input type="hidden" name="loc" value="en_US"/>
                         
                         <span class="input-group-btn"><!-- input-group-btn begin -->
                             
@@ -106,12 +150,12 @@
     <div class="container"><!-- container Begin -->
         <div class="col-md-6"><!-- col-md-6 Begin -->
             
-            <!-- <p class="pull-left">All Rights Reserve</p> -->
+            <p class="pull-left">&copy; 2018 M-Dev Store All Rights Reserve</p>
             
         </div><!-- col-md-6 Finish -->
         <div class="col-md-6"><!-- col-md-6 Begin -->
             
-            <p class="pull-right">Theme by: <a href="#">FH Projekt</a></p>
+            <p class="pull-right">Theme by: <a href="#">MrGhie</a></p>
             
         </div><!-- col-md-6 Finish -->
     </div><!-- container Finish -->
