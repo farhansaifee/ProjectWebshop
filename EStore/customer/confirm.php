@@ -2,27 +2,22 @@
 
 session_start();
 
-if(!isset($_SESSION['customer_email']))
-{
-
-    echo "<script>window.open('../checkout.php ' , '_self')</script>";
-}
-else
-{
-
+if(!isset($_SESSION['customer_email'])){
+    
+    echo "<script>window.open('../checkout.php','_self')</script>";
+    
+}else{
 
 include("includes/db.php");
 include("functions/functions.php");
-
-if(isset($_GET['order_id']))
-{
+    
+if(isset($_GET['order_id'])){
+    
     $order_id = $_GET['order_id'];
-
+    
 }
 
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,22 +37,23 @@ if(isset($_GET['order_id']))
            <div class="col-md-6 offer"><!-- col-md-6 offer Begin -->
                
                <a href="#" class="btn btn-success btn-sm">
-               
-               <?php 
-
-if(!isset($_SESSION['customer_email']))
-{
-    echo " Welcome : Guest";
-}else{
-
- echo "Welcome: ". $_SESSION['customer_email'] . "";
-}
-
-
-?>
+                   
+                   <?php 
+                   
+                   if(!isset($_SESSION['customer_email'])){
+                       
+                       echo "Welcome: Guest";
+                       
+                   }else{
+                       
+                       echo "Welcome: " . $_SESSION['customer_email'] . "";
+                       
+                   }
+                   
+                   ?>
                
                </a>
-               <a href="checkout.php"><?php items() ; ?> Items In Your Cart | Total Price: <?php total_price(); ?> </a>
+               <a href="checkout.php"> <?php items(); ?> Items In Your Cart | Total Price: <?php total_price(); ?> </a>
                
            </div><!-- col-md-6 offer Finish -->
            
@@ -77,20 +73,19 @@ if(!isset($_SESSION['customer_email']))
                    <li>
                        <a href="../checkout.php">
                        
-                       <?php 
+                        <?php 
+                           
+                           if(!isset($_SESSION['customer_email'])){
                        
-                     
+                                echo "<a href='checkout.php'> Login </a>";
 
-               if(!isset($_SESSION['customer_email']))
-               {
-                   echo " <a href='checkout.php'> login </a>";
-               }else{
+                               }else{
 
-                echo " <a href='logout.php'> Log Out </a>";
-               }
+                                echo " <a href='logout.php'> Log Out </a> ";
 
-                       
-                       ?>
+                               }
+                           
+                         ?>
                        
                        </a>
                    </li>
@@ -164,7 +159,7 @@ if(!isset($_SESSION['customer_email']))
                    
                    <i class="fa fa-shopping-cart"></i>
                    
-                   <span><?php items() ; ?> Items In Your Cart</span>
+                   <span><?php items(); ?> Items In Your Cart</span>
                    
                </a><!-- btn navbar-btn btn-primary Finish -->
                
@@ -241,7 +236,7 @@ if(!isset($_SESSION['customer_email']))
                    
                    <h1 align="center"> Please confirm your payment</h1>
                    
-                   <form action="confirm.php?update_id=<?php echo $order_id ;?>" method="post" enctype="multipart/form-data"><!-- form Begin -->
+                   <form action="confirm.php?update_id=<?php echo $order_id;  ?>" method="post" enctype="multipart/form-data"><!-- form Begin -->
                        
                        <div class="form-group"><!-- form-group Begin -->
                            
@@ -310,68 +305,50 @@ if(!isset($_SESSION['customer_email']))
                        </div><!-- text-center Finish -->
                        
                    </form><!-- form Finish -->
-
+                   
                    <?php 
-
-                   if(isset($_POST['confirm_payment']))
-                   {
-
-                    $update_it = $_GET['update_id'];
-
-                    $invoice_no = $_POST['invoice_no'];
-
-                    $amount = $_POST['amount_sent'];
-
-                    $payment_mode = $_POST['payment_mode'];
-
-                    $ref_no = $_POST['ref_no'];
-
-                    $code = $_POST['code'];
-
-                    $payment_date = $_POST['date'];
-
-                    $complete = "Complete";
-
-                    $insert_payment = "insert into payments (invoice_no,amount,payment_mode,ref_no,code,payment_date) values
-                     ('$invoice_no','$amount','$payment_mode','$ref_no','$code','$payment_date')";
-
-                     $run_payment = mysqli_query($con, $insert_payment);
-
-                     $update_customer_order = "update customer_orders set order_status='$complete' where order_id = '$update_id'";
-
-                     $run_customer_order = mysqli_query($con , $update_customer_order);
-
-                     $update_pending_order = "update pending_orders set order_status='$complete' where order_id = '$update_id'";
-
-                     $run_pending_order = mysqli_query($con , $update_pending_order);
-
-                     if($run_pending_order)
-                     {
-                         echo "<script>alert('Thank You For Purchasing , Your orders Will be completed within 24hrs ')</script>";
-
-                         echo "<script>window.open('my_account.php?my_orders' , '_self')</script>"
-
-
-                     }
-
-
-                   }
-
+                   
+                    if(isset($_POST['confirm_payment'])){
+                        
+                        $update_id = $_GET['update_id'];
+                        
+                        $invoice_no = $_POST['invoice_no'];
+                        
+                        $amount = $_POST['amount_sent'];
+                        
+                        $payment_mode = $_POST['payment_mode'];
+                        
+                        $ref_no = $_POST['ref_no'];
+                        
+                        $code = $_POST['code'];
+                        
+                        $payment_date = $_POST['date'];
+                        
+                        $complete = "Complete";
+                        
+                        $insert_payment = "insert into payments (invoice_no,amount,payment_mode,ref_no,code,payment_date) values ('$invoice_no','$amount','$payment_mode','$ref_no','$code','$payment_date')";
+                        
+                        $run_payment = mysqli_query($con,$insert_payment);
+                        
+                        $update_customer_order = "update customer_orders set order_status='$complete' where order_id='$update_id'";
+                        
+                        $run_customer_order = mysqli_query($con,$update_customer_order);
+                        
+                        $update_pending_order = "update pending_orders set order_status='$complete' where order_id='$update_id'";
+                        
+                        $run_pending_order = mysqli_query($con,$update_pending_order);
+                        
+                        if($run_pending_order){
+                            
+                            echo "<script>alert('Thank You for purchasing, your orders will be completed within 24 hours work')</script>";
+                            
+                            echo "<script>window.open('my_account.php?my_orders','_self')</script>";
+                            
+                        }
+                        
+                    }
+                   
                    ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                    
                </div><!-- box Finish -->
                
@@ -392,8 +369,4 @@ if(!isset($_SESSION['customer_email']))
     
 </body>
 </html>
-
-<?php
-}
-
-?>
+<?php } ?>

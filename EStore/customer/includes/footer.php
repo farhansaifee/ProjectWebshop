@@ -16,46 +16,40 @@
                 
                 <h4>User Section</h4>
                 
-               
                 <ul><!-- ul Begin -->
-
-                <?php
-
-if(!isset($_SESSION['customer_email']))
-{
-    echo "<a href='../checkout.php'>Login</a>";
-
-
-}else
-{
-  echo "<a href='my_account.php?my_orders'>My Account</a>";
-
-
-}
-
-?>
-
-                    <li>
-
-                    <?php
-
-           if(!isset($_SESSION['customer_email']))
-          {
-             echo "<a href='../checkout.php'>Login</a>";
-
-
-              }else
-                    {
-                echo "<a href='my_account.php?edit_account'>Edit Account</a>";
-
-
-                    }
-
+                           
+                           <?php 
+                           
+                           if(!isset($_SESSION['customer_email'])){
+                               
+                               echo"<a href='../checkout.php'>Login</a>";
+                               
+                           }else{
+                               
+                              echo"<a href='my_account.php?my_orders'>My Account</a>"; 
+                               
+                           }
+                           
                            ?>
                     
+                    <li>
+                    
+                            <?php 
+                           
+                           if(!isset($_SESSION['customer_email'])){
+                               
+                               echo"<a href='../checkout.php'>Login</a>";
+                               
+                           }else{
+                               
+                              echo"<a href='my_account.php?edit_account'>Edit Account</a>"; 
+                               
+                           }
+                           
+                           ?>
                     
                     </li>
-               
+                    <li><a href="../terms.php">Terms & Conditions</a></li>
                 </ul><!-- ul Finish -->
                 
                 <hr class="hidden-md hidden-lg hidden-sm">

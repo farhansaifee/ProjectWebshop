@@ -17,24 +17,23 @@
                 <h4>User Section</h4>
                 
                 <ul><!-- ul Begin -->
-
-                <?php
-
-if(!isset($_SESSION['customer_email']))
-{
-    echo "<a href='checkout.php'>Login</a>";
-
-
-}else
-{
-  echo "<a href='customer/my_account.php?my_orders'>My Account</a>";
-
-
-}
-
-?>
-
+                           
+                           <?php 
+                           
+                           if(!isset($_SESSION['customer_email'])){
+                               
+                               echo"<a href='checkout.php'>Login</a>";
+                               
+                           }else{
+                               
+                              echo"<a href='customer/my_account.php?my_orders'>My Account</a>"; 
+                               
+                           }
+                           
+                           ?>
+                    
                     <li><a href="customer_register.php">Register</a></li>
+                    <li><a href="terms.php">Terms & Conditions</a></li>
                 </ul><!-- ul Finish -->
                 
                 <hr class="hidden-md hidden-lg hidden-sm">
@@ -150,7 +149,7 @@ if(!isset($_SESSION['customer_email']))
     <div class="container"><!-- container Begin -->
         <div class="col-md-6"><!-- col-md-6 Begin -->
             
-            <p class="pull-left">&copy; 2018 M-Dev Store All Rights Reserve</p>
+            <p class="pull-left">&copy; 2019 M-Dev Store All Rights Reserve</p>
             
         </div><!-- col-md-6 Finish -->
         <div class="col-md-6"><!-- col-md-6 Begin -->

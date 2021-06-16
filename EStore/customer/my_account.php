@@ -2,22 +2,17 @@
 
 session_start();
 
-if(!isset($_SESSION['customer_email']))
-{
-
-    echo "<script>window.open('../checkout.php ' , '_self')</script>";
-}
-else
-{
-
-
-
+if(!isset($_SESSION['customer_email'])){
+    
+    echo "<script>window.open('../checkout.php','_self')</script>";
+    
+}else{
 
 include("includes/db.php");
 include("functions/functions.php");
 
 ?>
-
+  
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,22 +32,23 @@ include("functions/functions.php");
            <div class="col-md-6 offer"><!-- col-md-6 offer Begin -->
                
                <a href="#" class="btn btn-success btn-sm">
-               
-               <?php 
-
-if(!isset($_SESSION['customer_email']))
-{
-    echo " Welcome : Guest";
-}else{
-
- echo "Welcome: ". $_SESSION['customer_email'] . "";
-}
-
-
-?>
+                   
+                   <?php 
+                   
+                   if(!isset($_SESSION['customer_email'])){
+                       
+                       echo "Welcome: Guest";
+                       
+                   }else{
+                       
+                       echo "Welcome: " . $_SESSION['customer_email'] . "";
+                       
+                   }
+                   
+                   ?>
                
                </a>
-               <a href="checkout.php"><?php items() ; ?> Items In Your Cart | Total Price: <?php total_price(); ?> </a>
+               <a href="checkout.php"> <?php items(); ?> Items In Your Cart | Total Price: <?php total_price(); ?> </a>
                
            </div><!-- col-md-6 offer Finish -->
            
@@ -72,20 +68,19 @@ if(!isset($_SESSION['customer_email']))
                    <li>
                        <a href="../checkout.php">
                        
-                       <?php 
+                        <?php 
+                           
+                           if(!isset($_SESSION['customer_email'])){
                        
-                     
+                                echo "<a href='checkout.php'> Login </a>";
 
-               if(!isset($_SESSION['customer_email']))
-               {
-                   echo " <a href='checkout.php'> login </a>";
-               }else{
+                               }else{
 
-                echo " <a href='logout.php'> Log Out </a>";
-               }
+                                echo " <a href='logout.php'> Log Out </a> ";
 
-                       
-                       ?>
+                               }
+                           
+                         ?>
                        
                        </a>
                    </li>
@@ -159,7 +154,7 @@ if(!isset($_SESSION['customer_email']))
                    
                    <i class="fa fa-shopping-cart"></i>
                    
-                   <span><?php items() ; ?> Items In Your Cart</span>
+                   <span><?php items(); ?> Items In Your Cart</span>
                    
                </a><!-- btn navbar-btn btn-primary Finish -->
                
@@ -293,9 +288,4 @@ if(!isset($_SESSION['customer_email']))
     
 </body>
 </html>
-
-<?php
-
-}
-
-?>
+<?php } ?>

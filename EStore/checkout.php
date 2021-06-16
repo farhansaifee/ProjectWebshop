@@ -27,30 +27,26 @@
     include("includes/sidebar.php");
     
     ?>
-
-
-    </div><!-- col-md-3 finish -->
-
-
-
-    <div class="col-md-9"><!-- col-md-3 Begin -->
-
-    <?php
-
-    if(!isset($_SESSION['customer_email'])){
-
-        include("customer/customer_login.php");
-
-    }else{
-        include("payment_option.php");
-    }
-
-
-?>
-
-</div><!-- col-md-3 finish -->
                
-        
+           </div><!-- col-md-3 Finish -->
+           
+           <div class="col-md-9"><!-- col-md-9 Begin -->
+           
+           <?php 
+           
+           if(!isset($_SESSION['customer_email'])){
+               
+               include("customer/customer_login.php");
+               
+           }else{
+               
+               include("payment_options.php");
+               
+           }
+           
+           ?>
+           
+           </div><!-- col-md-9 Finish -->
            
        </div><!-- container Finish -->
    </div><!-- #content Finish -->
@@ -67,4 +63,3 @@
     
 </body>
 </html>
-

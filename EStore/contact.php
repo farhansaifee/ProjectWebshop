@@ -93,42 +93,41 @@
                            </div><!-- text-center Finish -->
                            
                        </form><!-- form Finish -->
-
-
-                       <?php
-
-                       if(isset($_post['submit']))
-                       {
-
-                        /// admin receives message with this ///
-
-                        $sender_name = $_post['name'];
-
-                        $sender_email = $_post['email'];
-
-                        $sender_subject = $_post['subject'];
-
-                        $sender_message = $_post['message'];
-
-                        $receiver_email = "mugianto4th@gmail.com"; 
-
-                        mail($receiver_email,$sender_name,$sender_subject,$sender_message,$sender_email);
-
-                        /// Auto reply to sender with this///
-
-                        $email = $_POST['email'];
-
-                        $subject = "Welcome to my website";
-                        $msg = "Thanks for sending us message , ASAP we will reply your messsage";
-                        $from = "mugianto4th@gmail.com";
-
-                        mail($email,$subject,$msg, $from  );
-                        echo "<h2 align = 'center'> Your message has sent sucessfully! </h2>";
-
-
-
+                       
+                       <?php 
+                       
+                       if(isset($_POST['submit'])){
+                           
+                           /// Admin receives message with this ///
+                           
+                           $sender_name = $_POST['name'];
+                           
+                           $sender_email = $_POST['email'];
+                           
+                           $sender_subject = $_POST['subject'];
+                           
+                           $sender_message = $_POST['message'];
+                           
+                           $receiver_email = "mugianto4th@gmail.com";
+                           
+                           mail($receiver_email,$sender_name,$sender_subject,$sender_message,$sender_email);
+                           
+                           /// Auto reply to sender with this ///
+                           
+                           $email = $_POST['email'];
+                           
+                           $subject = "Welcome to my website";
+                           
+                           $msg = "Thanks for sending us message. ASAP we will reply your message";
+                           
+                           $from = "mugianto4th@gmail.com";
+                           
+                           mail($email,$subject,$msg,$from);
+                           
+                           echo "<h2 align='center'> Your message has sent sucessfully </h2>";
+                           
                        }
-
+                       
                        ?>
                        
                    </div><!-- box-header Finish -->
@@ -148,7 +147,5 @@
     
     <script src="js/jquery-331.min.js"></script>
     <script src="js/bootstrap-337.min.js"></script>
-    
-    
 </body>
 </html>

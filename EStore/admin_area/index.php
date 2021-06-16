@@ -148,6 +148,98 @@
                         
                         include("edit_slide.php");
                         
+                }   if(isset($_GET['insert_box'])){
+                        
+                        include("insert_box.php");
+                        
+                }   if(isset($_GET['view_boxes'])){
+                        
+                        include("view_boxes.php");
+                        
+                }   if(isset($_GET['delete_box'])){
+                        
+                        include("delete_box.php");
+                        
+                }   if(isset($_GET['edit_box'])){
+                        
+                        include("edit_box.php");
+                        
+                }   if(isset($_GET['view_customers'])){
+                        
+                        include("view_customers.php");
+                        
+                }   if(isset($_GET['delete_customer'])){
+                        
+                        include("delete_customer.php");
+                        
+                }   if(isset($_GET['view_orders'])){
+                        
+                        include("view_orders.php");
+                        
+                }   if(isset($_GET['delete_order'])){
+                        
+                        include("delete_order.php");
+                        
+                }   if(isset($_GET['view_payments'])){
+                        
+                        include("view_payments.php");
+                        
+                }   if(isset($_GET['delete_payment'])){
+                        
+                        include("delete_payment.php");
+                        
+                }   if(isset($_GET['view_users'])){
+                        
+                        include("view_users.php");
+                        
+                }   if(isset($_GET['delete_user'])){
+                        
+                        include("delete_user.php");
+                        
+                }   if(isset($_GET['insert_user'])){
+                        
+                        include("insert_user.php");
+                        
+                }   if(isset($_GET['user_profile'])){
+                        
+                        include("user_profile.php");
+                        
+                }   if(isset($_GET['insert_terms'])){
+                        
+                        include("insert_terms.php");
+                        
+                }   if(isset($_GET['view_terms'])){
+                        
+                        include("view_terms.php");
+                        
+                }   if(isset($_GET['delete_term'])){
+                        
+                        include("delete_term.php");
+                        
+                }   if(isset($_GET['edit_term'])){
+                        
+                        include("edit_term.php");
+                        
+                }   if(isset($_GET['edit_css'])){
+                        
+                        include("edit_css.php");
+                        
+                }   if(isset($_GET['insert_manufacturer'])){
+                        
+                        include("insert_manufacturer.php");
+                        
+                }   if(isset($_GET['view_manufacturers'])){
+                        
+                        include("view_manufacturers.php");
+                        
+                }   if(isset($_GET['delete_manufacturer'])){
+                        
+                        include("delete_manufacturer.php");
+                        
+                }   if(isset($_GET['edit_manufacturer'])){
+                        
+                        include("edit_manufacturer.php");
+                        
                 }
         
                 ?>
@@ -157,7 +249,7 @@
     </div><!-- wrapper finish -->
 
 <script src="js/jquery-331.min.js"></script>     
-<script src="js/bootstrap-337.min.js"></script>           
+<script src="js/bootstrap-337.min.js"></script>       
 </body>
 </html>
 
